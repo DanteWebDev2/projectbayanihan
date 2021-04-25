@@ -1,8 +1,44 @@
 <html>
-<title>MY WEB PAGE</title>
-<h1 style="color:red; font-size:33px;">Name</h1>
-<input bold type="text" id="newEntry1" placeholder="Who they are&#063">&nbsp<input bold type="text" id="newPlace" name="Place1" placeholder="Where did you meet&#063">&nbsp
-<input type="submit" value="Confirm"><br><br>
-<input bold type="text" id="newEntry2" name="Entry2" placeholder="Another Group&#063">&nbsp<input bold type="text" id="newPlace2" name="Place2" placeholder="Where did you meet&#063">&nbsp
-<input type="submit" value="Confirm">
+ <head>
+<title>DONATION ENTRY</title>
+ </head>
+<body style="background-color:#FFDEAD;">
+<center>
+<h1 style="color:tomato; font-size:30px;">IN-KIND DONATION ENTRY</h1>
+<h1 style="color:black; font-style:oblique; font-size:17px;">A Bayanihan for the Underprivileged</h1><br><br>
+</center>
+
+<form class ="form" action="" method="post">
+	{% csrf_token %}
+
+
+	<center>
+	
+	<input bold type="text" id="Donor" name="Donor" placeholder="Name of Donor" size="23">
+
+	
+	<input bold type="text" id="Email" name="Email" placeholder="Email Address" size="23">
+	<br><br>
+	
+	<input bold type="text" id="Donation" name="Donation" placeholder="Item Donation" size="23">
+
+	
+	<input bold type="text" id="Items" name="Items" placeholder="Item Specifics: Volume and Packaging" size="23">
+	<br><br>
+	
+	<div id="tion">
+ 	<p>Type of Donation Support:</p>
+  	<input type ="radio" id="button1" name="tion" value="Personal Donation">Personal Donation<br>
+    <input type ="radio" id="button2" name="tion" value="Company Donation">Company Donation<br><br>
+    </div>
+
+
+	<input bold type="text" id="Message" name="Message" placeholder="Special Instructions" size="23">
+	<br><br>
+
+	<input type="submit" value="Donate">
+</left>
+</form>
+	
+</body>
 </html>

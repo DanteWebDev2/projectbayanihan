@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DONATION ENTRY</title>
+</head>
+<style>
+table, td, th{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+<body style="background-color:#FFDEAD;">
+<center><h1 style="color:tomato";>LIST OF DONATED ENTRIES</h1></center>
+<table style="width:100%">
+  <tr>
+  
+    <th>Name of Donor: </th>
+    <th>Email Adress:</th>
+    <th>Item Donation: </th>
+    <th>Volume and Packaging:</th>
+    <th>Type of Donation Support:</th>
+    <th>Special Instructions:</th>
+    </tr>
+<div class="jnd">
+	{% for jnd in jnd %}
+	<div class="jnd">
+
+    <tr>
+    <td>{{ forloop.counter }}:{{ jnd.Donor }}</td>
+    <td><center>{{ jnd.Email }}</center></td>
+    <td><center>{{ jnd.Donation }}</center></td>
+    <td><center>{{ jnd.Items}}</center></td>
+    <td><center>{{ jnd.tion }}</center></td>
+    <td><center>{{ jnd.Message }}</center></td>
+
+  </tr>
+
+
+</div>
+	{% endfor %}
+	</table>
+</body>
+</html>
+
