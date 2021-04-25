@@ -1,34 +1,107 @@
 from selenium import webdriver
-browser = webdriver.Firefox()
-browser.get('http://127.0.0.1:8000')
+import unittest
 
-"""import unittest
 from selenium.webdriver.common.keys import Keys
 import time
 
-browser = webdriver.Firefox()
-browser.get('http://127.0.0.1:8000')
-
 class PageTest(unittest.TestCase):
+
+	
 	def setUp(self):
 		self.browser = webdriver.Firefox()
-
-	def test_browser_test(self):
-		self.browser.get.browser('http://localhost:8000')
 		
-	def test_start_list_and_retrieve_it(self):
+
+	def test_browser_title(self):
 		self.browser.get('http://localhost:8000')
-		#self.assertIn('BALANCE Group', self.browser.title)
-		headerText = self.browser.find_element_by_tag_name('h1').text
-		self.assertIn('In-Kind Donation', headerText)
-		inputbox = self.browser.find_element_by_id('idNewEntry').send_keys("4000-xxx")
-		
-		inputbox = self.browser.find_element_by_id('newEntry2')
-		self.assertEqual(inputbox.get_attribute('placeholder'), 'dd/mm/yr')
-		inputbox.send_keys('July 24, 1999')
-		inputbox.send_keys(Keys.ENTER)
+		self.assertIn('DONATION ENTRY', self.browser.title)
 
+		JdText = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('IN-KIND DONATION ENTRY', JdText)
+
+		h_code = self.browser.find_element_by_id('me').text
+		self.assertIn('A Bayanihan for the Underprivileged', h_code)
+
+		para = self.browser.find_element_by_tag_name('p').text
+		self.assertIn('Type of Donation Support:', para)
+
+		form = self.browser.find_element_by_tag_name('form')
+
+		put1 = self.browser.find_element_by_id('Donor')  
+		self.assertEqual(put1.get_attribute('placeholder'),'Name of Donor')
+		put1 = self.browser.find_element_by_id('Donor').send_keys("Eden P. Mendoza")
+		time.sleep(1)
+
+		put2 = self.browser.find_element_by_id('Email')  
+		self.assertEqual(put2.get_attribute('placeholder'),'Email Address')
+		put2 = self.browser.find_element_by_id('Email').send_keys("edenpino11@gmail.com")
+		time.sleep(1)
+		
+		put3 = self.browser.find_element_by_id('Donation')  
+		self.assertEqual(put3.get_attribute('placeholder'),'Item Donation')
+		put3 = self.browser.find_element_by_id('Donation').send_keys("drinks")
+		time.sleep(1)
+
+		put4 = self.browser.find_element_by_id('Items')  
+		self.assertEqual(put4.get_attribute('placeholder'),'Item Specifics: Volume and Packaging')
+		put4 = self.browser.find_element_by_id('Items').send_keys("10L of water")
+		time.sleep(1)
+
+		t1 = self.browser.find_element_by_name('tion').click()
+		t2 = self.browser.find_element_by_name('tion').click()
+
+		radyo1 = self.browser.find_element_by_id('button1').click()
+		time.sleep(1)
+		radyo2 = self.browser.find_element_by_id('button2').click()
+		time.sleep(1)
+
+		put5 = self.browser.find_element_by_id('Message')  
+		self.assertEqual(put5.get_attribute('placeholder'),'Special Instructions')
+		put5 = self.browser.find_element_by_id('Message').send_keys("Handle with care")
+
+		submitbutton = self.browser.find_element_by_name('submit').click()
+		time.sleep(2)
+
+		self.browser.quit()	
+		self.browser = webdriver.Firefox()
+		self.browser.get('http://localhost:8000')
+
+		put1 = self.browser.find_element_by_id('Donor')  
+		self.assertEqual(put1.get_attribute('placeholder'),'Name of Donor')
+		put1 = self.browser.find_element_by_id('Donor').send_keys("Ronan Kyle Ranido")
+		time.sleep(1)
+
+		put2 = self.browser.find_element_by_id('Email')  
+		self.assertEqual(put2.get_attribute('placeholder'),'Email Address')
+		put2 = self.browser.find_element_by_id('Email').send_keys("rronankyle@gmail.com")
+		time.sleep(1)
+		
+		put3 = self.browser.find_element_by_id('Donation')  
+		self.assertEqual(put3.get_attribute('placeholder'),'Item Donation')
+		put3 = self.browser.find_element_by_id('Donation').send_keys("foods")
+		time.sleep(1)
+
+		put4 = self.browser.find_element_by_id('Items')  
+		self.assertEqual(put4.get_attribute('placeholder'),'Item Specifics: Volume and Packaging')
+		put4 = self.browser.find_element_by_id('Items').send_keys("15 sacks of rice")
+		time.sleep(1)
+
+		t1 = self.browser.find_element_by_name('tion').click()
+		t2 = self.browser.find_element_by_name('tion').click()
+
+		radyo1 = self.browser.find_element_by_id('button1').click()
+		time.sleep(1)
+		radyo2 = self.browser.find_element_by_id('button2').click()
+		time.sleep(1)
+
+		put5 = self.browser.find_element_by_id('Message')  
+		self.assertEqual(put5.get_attribute('placeholder'),'Special Instructions')
+		put5 = self.browser.find_element_by_id('Message').send_keys("Enjoy it!")
+
+		submitbutton = self.browser.find_element_by_name('submit').click()
+		time.sleep(2)
+		self.browser.quit()
+		
 
 
 if __name__ == '__main__':
-	unittest.main(warnings='ignore')"""
+	unittest.main()
