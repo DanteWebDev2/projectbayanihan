@@ -2,9 +2,31 @@ from django.test import TestCase
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 from myWEB.views import Mainpage
+from myWEB.views import Page
 from django.urls import resolve
 #For Models testing
 from myWEB.models import Item
+
+'''
+class NewListTest(TestCase):
+	def test_uses_home_template(self):
+		response = self.client.get('/')
+		self.assertTemplateUsed(response, 'mainpage.html')
+		
+
+	def test_can_save_a_POST_request(self):
+		self.client.post('/Donation/', data={'Donor': 'Eden P. Mendoza'})
+
+		self.assertEqual(Item.objects.count(), 0)
+		Donor = Item.objects.first()
+		self.assertEqual(Donor.text, 'Eden P. Mendoza')
+
+		self.client.post('/lists/new', data={'item_text': 'A new list item'})
+
+		self.assertEqual(Item.objects.count(), 0)
+		new_item = Item.objects.first()
+		self.assertEqual(new_item.text, 'A new list item')'''
+
 
 class IndexTest(TestCase):
 
@@ -124,3 +146,10 @@ class ORM_second(TestCase):
 		self.assertEqual(Item4.Items, '15 sacks of rice')
 		self.assertEqual(Item5.tion, 'Company Donation')
 		self.assertEqual(Item6.Message, 'Enjoy it!')
+
+class Views(TestCase):
+	def test_joy(self):
+		Item.objects.create(Donor='Donor', 
+			Email='Email', Donation='Donation',
+			Items='Items', tion='tion', Message='Message')
+		response = self.client.get('/app/views.Mainpage/')

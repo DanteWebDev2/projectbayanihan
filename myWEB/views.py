@@ -1,15 +1,28 @@
-from django.shortcuts import render, HttpResponse
-from .models import Item
+from django.shortcuts import redirect, render
+from .models import Item, User
 # Create your views here.
 def Mainpage(request):
 	
 	if request.method == 'POST':
-		Donor = request.POST['Donor']
-		Email = request.POST['Email']
-		Donation = request.POST['Donation']
-		Items = request.POST['Items']
-		tion = request.POST['tion']
-		Message = request.POST['Message']
+
+
+		kind=User.objects.create()
+		Item.objects.create(
+			Donor = request.POST['Donor'],
+			Email = request.POST['Email'],
+			Items = request.POST['Items'],
+			tion = request.POST['tion'],
+			Message = request.POST['Message'],
+			)
+		return redirect('donation')
+
+
+		#Donor = request.POST['Donor']
+		#Email = request.POST['Email']
+		#Donation = request.POST['Donation']
+		#Items = request.POST['Items']
+		#tion = request.POST['tion']
+		#Message = request.POST['Message']
 		
 		jnd = Item()
 		jnd.Donor = Donor
@@ -27,5 +40,6 @@ def Page (request):
 
 	jnd = Item.objects.all().order_by('Donor')
 	return render(request,'donation.html', {'jnd': jnd})
-	
+
+
 

@@ -1,17 +1,19 @@
 from selenium import webdriver
 import unittest
-
 from selenium.webdriver.common.keys import Keys
 import time
+from django.test import LiveServerTestCase
 
-class PageTest(unittest.TestCase):
+class PageTest(LiveServerTestCase):
 
 	
 	def setUp(self):
 		self.browser = webdriver.Firefox()
+		self.browser.get(self.live_server_url)
+
 
 	def test_browser_title(self):
-		self.browser.get('http://localhost:8000')
+		self.browser.get(self.live_server_url)
 		self.assertIn('DONATION ENTRY', self.browser.title)
 
 		JdText = self.browser.find_element_by_tag_name('h1').text
@@ -62,7 +64,7 @@ class PageTest(unittest.TestCase):
 
 		self.browser.quit()	
 		self.browser = webdriver.Firefox()
-		self.browser.get('http://localhost:8000')
+		self.browser.get(self.live_server_url)
 
 		put1 = self.browser.find_element_by_id('Donor')  
 		self.assertEqual(put1.get_attribute('placeholder'),'Name of Donor')
@@ -102,5 +104,5 @@ class PageTest(unittest.TestCase):
 		
 
 
-if __name__ == '__main__':
-	unittest.main()
+'''if __name__ == '__main__':
+	unittest.main()'''

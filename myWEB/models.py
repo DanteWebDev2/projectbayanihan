@@ -1,6 +1,12 @@
 from django.db import models
 
+class User(models.Model):
+	pass
+
+
 class Item(models.Model):
+
+	viewer=models.ForeignKey(User, default=None, on_delete=models.CASCADE, null=True)
 
 	#DONOR
 	Donor = models.CharField(max_length=20, null=True)
