@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
 	path('', views.Mainpage,),
-	path('donation', views.Page, name="donation"),
+	path('donation/', views.Page, name="donation"),
 	]

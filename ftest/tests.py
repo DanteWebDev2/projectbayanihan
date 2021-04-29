@@ -58,13 +58,18 @@ class PageTest(LiveServerTestCase):
 		put5 = self.browser.find_element_by_id('Message')  
 		self.assertEqual(put5.get_attribute('placeholder'),'Special Instructions')
 		put5 = self.browser.find_element_by_id('Message').send_keys("Handle with care")
+		time.sleep(1)
 
 		submitbutton = self.browser.find_element_by_name('submit').click()
 		time.sleep(2)
 
+		nextpage = self.browser.current_url
+		self.assertRegex(nextpage, '/donation/')
+
 		self.browser.quit()	
 		self.browser = webdriver.Firefox()
 		self.browser.get(self.live_server_url)
+
 
 		put1 = self.browser.find_element_by_id('Donor')  
 		self.assertEqual(put1.get_attribute('placeholder'),'Name of Donor')
@@ -97,12 +102,18 @@ class PageTest(LiveServerTestCase):
 		put5 = self.browser.find_element_by_id('Message')  
 		self.assertEqual(put5.get_attribute('placeholder'),'Special Instructions')
 		put5 = self.browser.find_element_by_id('Message').send_keys("Enjoy it!")
+		time.sleep(1)
 
 		submitbutton = self.browser.find_element_by_name('submit').click()
 		time.sleep(2)
-		self.browser.quit()
+		
 		
 
+		nextpage = self.browser.current_url
+		self.assertRegex(nextpage, '/donation/')
+
+		self.browser.quit()
 
 '''if __name__ == '__main__':
 	unittest.main()'''
+

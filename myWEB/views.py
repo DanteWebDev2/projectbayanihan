@@ -10,6 +10,7 @@ def Mainpage(request):
 		Item.objects.create(
 			Donor = request.POST['Donor'],
 			Email = request.POST['Email'],
+			Donation = request.POST['Donation'],
 			Items = request.POST['Items'],
 			tion = request.POST['tion'],
 			Message = request.POST['Message'],

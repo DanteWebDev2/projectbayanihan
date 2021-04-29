@@ -5,7 +5,8 @@ from myWEB.views import Mainpage
 from myWEB.views import Page
 from django.urls import resolve
 #For Models testing
-from myWEB.models import Item
+#from myWEB.models import Item
+from myWEB.models import Item, User 
 
 '''
 class NewListTest(TestCase):
@@ -63,7 +64,7 @@ class IndexTest(TestCase):
 		self.assertIn('<input bold type="text" id="Items" name="Items" placeholder="Item Specifics: Volume and Packaging" size="23">', html)
 		self.assertIn('<br><br>', html)
 		self.assertIn('<div id="tion">', html)
-		self.assertIn('<p>Type of Donation Support:</p>', html)
+		self.assertIn('<p style="font-style:oblique;">Type of Donation Support:</p>', html)
 		self.assertIn('<input type ="radio" id="button1" name="tion" value="Personal Donation">Personal Donation<br>', html)
 		self.assertIn('<input type ="radio" id="button2" name="tion" value="Company Donation">Company Donation<br><br>', html)
 		self.assertIn('</div>', html)
@@ -153,3 +154,101 @@ class Views(TestCase):
 			Email='Email', Donation='Donation',
 			Items='Items', tion='tion', Message='Message')
 		response = self.client.get('/app/views.Mainpage/')
+
+
+class ListViewTest(TestCase):
+
+	def test_uses_list_template(self):
+		viewer = User.objects.create()
+		response = self.client.get('/')
+		self.assertTemplateUsed(response, 'mainpage.html')
+
+	def test_uses_home_template(self):
+		response = self.client.get('/donation/')
+		#self.assertTemplateUsed(response, 'donation.html')
+
+	def test_displays_all_list_items(self):
+		viewer = User.objects.create()
+		Donor = Item.objects.create(Donor='Donor')
+		Email = Item.objects.create(Email='Email')
+		Donation = Item.objects.create(Donation='Donation')
+		Items = Item.objects.create(Items='Items')
+		tion = Item.objects.create(tion='tion')
+		Message = Item.objects.create(Message='Message')
+		response = self.client.get('/')
+		self.assertIn('Donor', response.content.decode())
+		self.assertIn('Email', response.content.decode())
+		self.assertIn('Donation', response.content.decode())
+		self.assertIn('Items', response.content.decode())
+		self.assertIn('tion', response.content.decode())
+		self.assertIn('Message', response.content.decode())
+		Donor = Item.objects.get(Donor="Donor")
+		Email = Item.objects.get(Email="Email")
+		Donation = Item.objects.get(Donation="Donation")
+		Items = Item.objects.get(Items="Items")
+		tion = Item.objects.get(tion="tion")
+		Message = Item.objects.get(Message="Message")
+		self.assertEqual(Item.objects.count(), 6)
+
+		
+class Views(TestCase):
+	def setUp(self):
+		Donor = Item.objects.create()
+		Email = Item.objects.create()
+		Donation = Item.objects.create()
+		Items = Item.objects.create()
+		tion = Item.objects.create()
+		Message = Item.objects.create()
+		
+		Item.objects.create(
+			Donor = 'Eden P. Mendoza',
+			Email = 'edenpino11@gmail.com',
+			Donation = 'drinks',
+			Items = '10L of water',
+			tion = 'Personal Donation',
+			Message = 'Handle with care',
+			)
+		self.client.post('/donation/', name='Eden P. Mendoza')
+		
+		#response = 
+		self.client.post('/donation/')
+
+		self.assertEqual(Item.objects.count(), 7)
+		#self.assertRedirects(response, '/next/')
+
+	def test_redirect_view(self):
+		Donor = Item.objects.get(Donor="Eden P. Mendoza")
+		Email = Item.objects.get(Email="edenpino11@gmail.com")
+		Donation = Item.objects.get(Donation="drinks")
+		Items = Item.objects.get(Items="10L of water")
+		tion = Item.objects.get(tion="Personal Donation")
+		Message = Item.objects.get(Message="Handle with care")
+
+		#response = self.client.post('/next/')
+		#self.assertRedirects(response, '/donation/')
+
+class Models(TestCase):
+
+	def modelo(self, 
+		Donor="test1", 
+		Email="test2", 
+		Donation="test3", 
+		Items="test4", 
+		tion="test5", 
+		Message="test6", 
+		):
+		
+		return User.objects.create()
+		return Item.objects.create(
+			Donor="Donor", 
+			Email="Email", 
+			Donation="Donation", 
+			Items="Items", 
+			tion="tion", 
+			Message="Message", 
+			)
+
+	def test_whatever_creation(self):
+		w = self.modelo()
+		self.assertTrue(isinstance(w, User))
+		self.assertFalse(isinstance(w, Item))
