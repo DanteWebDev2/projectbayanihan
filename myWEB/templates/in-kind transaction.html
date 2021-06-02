@@ -1,0 +1,48 @@
+<html>
+ <head>
+<title>IN-KIND TRANSACTION</title>
+ </head>
+<body style="background-color:#FFDEAD;">
+<center><h1 style="color:tomato; font-size:30px;">IN-KIND TRANSACTION</h1></center>
+<center><h1 style="color:black; font-style:oblique; font-size:17px;" id="me" >A Bayanihan for the Underprivileged!</h1><br><br></center>
+
+<form class ="form" action="" method="post">
+	{% csrf_token %}
+
+
+	<center>
+
+
+		<input bold type="text" id="Home" name="Home" placeholder="Complete Address" size="30"><br><br><br>
+
+<form name="frm-pin" method="post" action="pin-index-a.php">
+        <input type="hidden" name="mode" value="PinRequest" />
+        <label class="w3-text-green"><b>Pick-up Location</b></label>
+        <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">Metro Manila</option>
+			<option value="2">Luzon</option>
+			<option value="3">Visayas</option>
+			<option value="4">Mindanao</option>
+			<option value="5">Overseas</option>
+		</select><br><br><br>
+
+
+        <label><b>Charging Fee</b></label>
+        <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly size="16">
+        <script>
+            function calculateAmount(val) {
+                var tot_price = val * 120;
+                /*display the result*/
+                var divobj = document.getElementById('tot_amount');
+                divobj.value = tot_price;
+            }
+        </script><br><br>
+
+       <input type="submit" name="submit" id="submit" value="Proceed">
+
+</center>
+</form>
+	
+</body>
+</html>

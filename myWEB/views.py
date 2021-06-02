@@ -1,46 +1,39 @@
 from django.shortcuts import redirect, render
-from .models import Item, User
+from .models import Guests, Members, Enter,Sponsor, Option, Monetary, Transaction, Inkind, Settlement
 # Create your views here.
-def Mainpage(request):
-	
-	if request.method == 'POST':
 
 
-		kind=User.objects.create()
-		Item.objects.create(
-			Donor = request.POST['Donor'],
-			Email = request.POST['Email'],
-			Donation = request.POST['Donation'],
-			Items = request.POST['Items'],
-			tion = request.POST['tion'],
-			Message = request.POST['Message'],
-			)
-		return redirect('donation')
+def firstpage(request):
+
+	return render(request,'firstpage.html')
+
+def sponsor(request):
+
+	viewer=Sponsor.objects.create(
+		First = request.POST['First'],
+		Surname = request.POST['Surname'],
+		Email = request.POST['Email'],
+		Contact = request.POST['Contact'],
+		Address = request.POST['Address'],
+		)
+
+	return render(request,'donor.html')
+	return redirect('success')
 
 
-		#Donor = request.POST['Donor']
-		#Email = request.POST['Email']
-		#Donation = request.POST['Donation']
-		#Items = request.POST['Items']
-		#tion = request.POST['tion']
-		#Message = request.POST['Message']
-		
-		jnd = Item()
-		jnd.Donor = Donor
-		jnd.Email = Email
-		jnd.Donation = Donation
-		jnd.Items = Items
-		jnd.tion = tion
-		jnd.Message = Message
-		jnd.save()
+'''def option(request):
 
-	return render(request,'mainpage.html')
+	viewer=Option.objects.create(
+		choose = request.POST[('Monetary Donation', 'Monetary Donation'), ('In-Kind Donation', 'In-Kind Donation')],
+		#Donors = request.POST['Donors'],
+		Message = request.POST['Message'],
+		)
 
-def Page (request):
-	#return render(request,'donation.html')
+	return render(request,'donor.html')
+	return redirect('success')'''
 
-	jnd = Item.objects.all().order_by('Donor')
-	return render(request,'donation.html', {'jnd': jnd})
+
+
 
 
 

@@ -1,0 +1,55 @@
+<html>
+ <head>
+<title>IN-KIND DONATION</title>
+ </head>
+<body style="background-color:#FFDEAD;">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<center><h1 style="color:tomato; font-size:30px;">IN-KIND DONATION</h1></center>
+<center><h1 style="color:black; font-style:oblique; font-size:17px;" id="me" >Give today, Get tomorrow!</h1><br><br></center>
+
+<form class ="form" action="" method="post">
+	{% csrf_token %}
+
+
+	<center>
+
+	<p>"Enter the Items"</p>
+
+	<div data-ng-app="" data-ng-init="quantity=0">
+
+	<input bold type="text" id="Food" name="Food" placeholder="Food Necessities" size="23">
+	<input type="number" ng-model="quantity0" placeholder="Quantity" size="4">
+	<div data-ng-app="" data-ng-init="quantity=0">
+ 
+ 	<br><br>
+	
+	<input bold type="text" id="Drinks" name="Drinks" placeholder="Beverages" size="23">
+	<input type="number" ng-model="quantity1" placeholder="Quantity" size="4">
+	<div data-ng-app="" data-ng-init="quantity=0">
+	
+	<br><br>
+	
+	<input bold type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene" size="23">
+	<input type="number" ng-model="quantity2" placeholder="Quantity" size="4">
+	<div data-ng-app="" data-ng-init="quantity=0">
+	
+	<br><br>
+	
+	<input bold type="text" id="Cure" name="Cure" placeholder="Medicine" size="23">
+	<input type="number" ng-model="quantity3" placeholder="Quantity" size="4">
+	<div data-ng-app="" data-ng-init="quantity=0">
+
+	<br><br>
+	
+	<p><i>Total Quantity:</i> {{quantity + quantity0 + quantity1 + quantity2 + quantity3}}</p>
+
+	</div>
+
+	
+	
+	<input type="submit" name="submit" id="submit" value="Donate">
+</center>
+</form>
+	
+</body>
+</html>

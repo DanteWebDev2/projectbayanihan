@@ -229,7 +229,7 @@ class Views(TestCase):
 
 class Models(TestCase):
 
-	def modelo(self, 
+	def model(self, 
 		Donor="test1", 
 		Email="test2", 
 		Donation="test3", 

@@ -1,0 +1,33 @@
+<html>
+ <head>
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+</style> 
+<title>DONATION</title>
+ </head>
+<body style="background-color:hsla(89, 43%, 51%, 0.3);">
+<center><h1 style="color:darkgreen; font-family:Sigmar One; font-size:50px;">Operation Bayanihan</h1></center>
+
+<form class ="form" action="success" method="post">
+	{% csrf_token %}
+	
+
+	<center>
+	
+	<input bold type="text" id="First " name="First" placeholder="First Name" size="19">
+	
+	<input bold type="text" id="Surname" name="Surname" placeholder="Last Name" size="19"><br><br>
+	
+	<input bold type="text" id="Email" name="Email" placeholder="Email Address" size="19">
+	
+	<input bold type="text" id="Contact" name="Contact" placeholder="Phone Number" size="19"><br><br>
+
+	<input bold type="text" id="Address" name="Address" placeholder="Street Address" size="46"><br><br>
+	
+	<input type="submit" name="submit" id="submit" value="Proceed">
+
+</center>
+</form>
+</body>
+</html>
