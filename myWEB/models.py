@@ -1,35 +1,6 @@
 from django.db import models
 
 
-class Guests(models.Model):
-
-	#GUEST
-	Guest = models.CharField(max_length=20, null=True)
-
-	def __str__(self):
-		return self.Guest
-
-
-class Members(models.Model):
-
-	#MEMBER
-	Member = models.CharField(max_length=20, null=True)
-
-	def __str__(self):
-		return self.Member
-
-
-class Enter(models.Model):
-
-	#NAME OF MEMBER
-	Username = models.CharField(max_length=20, null=True)
-	#PASSWORD OF MEMBER
-	Password = models.CharField(max_length=20, null=True)
-	
-	def __str__(self):
-		return self.Username
-
-
 class Sponsor(models.Model):
 
 	#FIRST NAME
@@ -50,7 +21,6 @@ class Sponsor(models.Model):
 class Option(models.Model):
 
 	sponsors=models.ForeignKey(Sponsor, default=None, on_delete=models.CASCADE, null=True)
-	enters=models.ForeignKey(Enter, default=None, on_delete=models.CASCADE, null=True)
 
 	choose =(('Monetary Donation', 'Monetary Donation'), ('In-Kind Donation', 'In-Kind Donation'))
 	Donors = models.CharField(max_length=20, choices=choose, null=True)
@@ -134,3 +104,49 @@ class Settlement(models.Model):
 
 	def __str__(self):
 		return self.Locations
+
+
+class Fundraising(models.Model):
+
+	viewer=models.ForeignKey(Sponsor, default=None, on_delete=models.CASCADE, null=True)
+
+	#ORGANIZATION NAME
+	Organization = models.CharField(max_length=20, null=True)
+	#ORGANIZATION'S CONTACT PERSON
+	Organizer = models.CharField(max_length=20, null=True)
+	#EVENT NAME
+	Event= models.CharField(max_length=20, null=True)
+	#LOCATION ADDRESS
+	Area= models.CharField(max_length=50, null=True)
+	#MAILING ADDRESS
+	Email= models.EmailField(max_length=20, null=True)
+	#DATE NEEDED
+	Time= models.DateField(max_length=20, null=True)
+	#QUANTITY NEEDED
+	Sum= models.IntegerField(null=True)
+
+
+	def __str__(self):
+		return self.Fund
+
+
+class Recipient(models.Model):
+
+	viewer=models.ForeignKey(Sponsor, default=None, on_delete=models.CASCADE, null=True)
+
+	#DONATION RECIPIENT
+	Receiver = models.CharField(max_length=20, null=True)
+	#DATE RECEIVE
+	Dates = models.DateField(max_length=20, null=True)
+	#PERSON PICKING-UP DONATION
+	Persons= models.CharField(max_length=20, null=True)
+	#CONTACT INFO
+	Contact= models.IntegerField(null=True)
+	#NUMBER OF BENEFICIARIES
+	Beneficiaries= models.IntegerField(null=True)
+
+
+	def __str__(self):
+		return self.Receiver
+
+

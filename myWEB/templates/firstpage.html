@@ -1,13 +1,22 @@
+{% load static %}
 <html>
  <head>
  <style>
 @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+nav{
+	background: rgb(95, 122, 84);
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+	height: 65px;
+	line-height: 65px;
+}
 </style> 
 <title>DONATION</title>
  </head>
-<body style="background-color:hsla(89, 43%, 51%, 0.3);">
-<center><h1 style="color:darkgreen; font-family:Sigmar One; font-size:50px;">Operation Bayanihan</h1></center>
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/givings.jpg' %}') no-repeat fixed; background-size: cover;">
+<center><h1 style="color:white; font-family:Sigmar One; font-size:50px;">Operation Bayanihan</h1></center>
 
 <form class ="form" action="success" method="post">
 	{% csrf_token %}
@@ -15,17 +24,17 @@
 
 	<center>
 	
-	<input bold type="text" id="First " name="First" placeholder="First Name" size="19">
+	<input bold type="text" id="First " name="First" placeholder="First Name" style="width: 350px; height: 30px;"><br><br>
 	
-	<input bold type="text" id="Surname" name="Surname" placeholder="Last Name" size="19"><br><br>
+	<input bold type="text" id="Surname" name="Surname" placeholder="Last Name" style="width: 350px; height: 30px;"><br><br>
 	
-	<input bold type="text" id="Email" name="Email" placeholder="Email Address" size="19">
+	<input bold type="text" id="Email" name="Email" placeholder="Email Address" style="width: 350px; height: 30px;"><br><br>
 	
-	<input bold type="text" id="Contact" name="Contact" placeholder="Phone Number" size="19"><br><br>
+	<input bold type="text" id="Contact" name="Contact" placeholder="Phone Number" style="width: 350px; height: 30px;"><br><br>
 
-	<input bold type="text" id="Address" name="Address" placeholder="Street Address" size="46"><br><br>
+	<input bold type="text" id="Address" name="Address" placeholder="Street Address" style="width: 350px; height: 30px;"><br><br>
 	
-	<input type="submit" name="submit" id="submit" value="Proceed">
+	<input type="submit" name="submit" id="submit" value="Proceed" style="width: 110px; height: 30px;"><br><br>
 
 </center>
 </form>
