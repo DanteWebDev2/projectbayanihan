@@ -2,21 +2,43 @@
 <html>
  <head>
  <style>
-@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-nav{
-	background: rgb(95, 122, 84);
-	position: fixed;
-	width: 100%;
-	z-index: 999;
-	height: 65px;
-	line-height: 65px;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.topnav {
+  overflow: hidden;
+  background-color: orangered;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="#home"></a>
+  <a href="#news"></a>
+  <a href="#contact"></a>
+  <a href="#about"></a>
+</div>
+
+
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
 </style> 
 <title>DONATION</title>
  </head>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/givings.jpg' %}') no-repeat fixed; background-size: cover;">
-<center><h1 style="color:white; font-family:Sigmar One; font-size:50px;">Operation Bayanihan</h1></center>
+<center><h1 style="color:white; font-family:Sigmar One; font-size:55px;">Operation Bayanihan</h1></center>
 
 <form class ="form" action="success" method="post">
 	{% csrf_token %}
@@ -35,6 +57,7 @@ nav{
 	<input bold type="text" id="Address" name="Address" placeholder="Street Address" style="width: 350px; height: 30px;"><br><br>
 	
 	<input type="submit" name="submit" id="submit" value="Proceed" style="width: 110px; height: 30px;"><br><br>
+
 
 </center>
 </form>

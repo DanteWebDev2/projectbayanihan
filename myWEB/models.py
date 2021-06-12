@@ -122,6 +122,8 @@ class Fundraising(models.Model):
 	Email= models.EmailField(max_length=20, null=True)
 	#DATE NEEDED
 	Time= models.DateField(max_length=20, null=True)
+	#Items NEEDED
+	Item= models.CharField(max_length=20, null=True)
 	#QUANTITY NEEDED
 	Sum= models.IntegerField(null=True)
 

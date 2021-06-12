@@ -1,55 +1,140 @@
 <html>
  <head>
-<title>IN-KIND DONATION</title>
+ <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: orangered;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="#home"></a>
+  <a href="#news"></a>
+  <a href="#contact"></a>
+  <a href="#about"></a>
+</div>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
+.Kind{
+	margin-left: 210px;
+}
+</style>
+<title>TYPE OF DONATION</title>
  </head>
-<body style="background-color:#FFDEAD;">
+<body style="background-color:darkgray;">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<center><h1 style="color:tomato; font-size:30px;">IN-KIND DONATION</h1></center>
-<center><h1 style="color:black; font-style:oblique; font-size:17px;" id="me" >Give today, Get tomorrow!</h1><br><br></center>
+<center><h1 style="color:white; font-family: Sigmar One; margin-left: -480px; font-size:50px;">IN-KIND</h1>
+	<p style="color:white; font-family: Sigmar One; margin-left: 450px; margin-top: -113px; font-size:50px;">MONETARY</p>
+
+</center>
 
 <form class ="form" action="" method="post">
 	{% csrf_token %}
 
-
-	<center>
-
-	<p>"Enter the Items"</p>
+	<div class="Kind">
 
 	<div data-ng-app="" data-ng-init="quantity=0">
 
-	<input bold type="text" id="Food" name="Food" placeholder="Food Necessities" size="23">
+	<input bold type="text" id="Food" name="Food" placeholder="Food Necessities" style="width: 280px; height: 30px;">
 	<input type="number" ng-model="quantity0" placeholder="Quantity" size="4">
+	<input bold type="text" id="List" name="List" placeholder="Specify your Donation" style="width: 280px; margin-left: 150px; height: 30px;">
 	<div data-ng-app="" data-ng-init="quantity=0">
- 
- 	<br><br>
+ 	<br>
 	
-	<input bold type="text" id="Drinks" name="Drinks" placeholder="Beverages" size="23">
+	<input bold type="text" id="Drinks" name="Drinks" placeholder="Beverages" style="width: 280px; height: 30px;">
 	<input type="number" ng-model="quantity1" placeholder="Quantity" size="4">
-	<div data-ng-app="" data-ng-init="quantity=0">
-	
-	<br><br>
-	
-	<input bold type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene" size="23">
-	<input type="number" ng-model="quantity2" placeholder="Quantity" size="4">
-	<div data-ng-app="" data-ng-init="quantity=0">
-	
-	<br><br>
-	
-	<input bold type="text" id="Cure" name="Cure" placeholder="Medicine" size="23">
-	<input type="number" ng-model="quantity3" placeholder="Quantity" size="4">
-	<div data-ng-app="" data-ng-init="quantity=0">
+	<input bold type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate?" style="width: 280px; margin-left: 150px; height: 30px;"><br>
 
-	<br><br>
+	<div data-ng-app="" data-ng-init="quantity=0">
 	
-	<p><i>Total Quantity:</i> {{quantity + quantity0 + quantity1 + quantity2 + quantity3}}</p>
+	<br>
+	
+	<input bold type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene" style="width: 280px; height: 30px;">
+	<input type="number" ng-model="quantity2" placeholder="Quantity" size="4">
+	<input bold type="text" id="Gcash" name="Gcash" placeholder="Gcash Account" style="width: 280px; margin-left: 150px; height: 30px;">
+	<br>
+	<div data-ng-app="" data-ng-init="quantity=0">
+	
+	<br>
+	
+	<input bold type="text" id="Cure" name="Cure" placeholder="Medicine" style="width: 280px; height: 30px;">
+	<input type="number" ng-model="quantity3" placeholder="Quantity" size="4">
+	<input bold type="text" id="Bank" name="Bank" placeholder="Bank Account"  style="width: 280px; margin-left: 150px; height: 30px;">
+	<br><br>
+	<div data-ng-app="" data-ng-init="quantity=0">
+	<input bold type="text" id="Bills" name="Bills" placeholder="Billing Address" style="width: 281px; margin-left: 522px; height: 30px;"><br><br>
+	<input bold type="text" id="Place" name="Place" placeholder="Destination" style="width: 281px; margin-left: 520px; height: 30px;">
+	 <input type="submit" name="submit" id="submit" value="Donate" style="width: 110px; margin-left: 610px; margin-top: 50px; height: 30px;"><br>
+	<p style="color:black; margin-left: 100px; margin-top: -150px";><i>Total of Boxes:</i> {{quantity + quantity0 + quantity1 + quantity2 + quantity3}}</p>
+
+
+   
 
 	</div>
 
+	<script type="text/javascript">
+
+function showDiv(toggle){
+document.getElementById(toggle).style.display = 'block';
+}
+</script>
+<input style="color:black; margin-left: 100px; margin-top:5px;" type="button" name="answer" onclick="showDiv('toggle')">Proceed to Transaction</input>
+
+<div id="toggle" style="display:none">
+
+    <form name="frm-pin" method="post" action="pin-index-a.php">
+    <input type="hidden" name="mode" value="PinRequest" />
+    <label class="w3-text-green" style="font-family: Sigmar One" "font-size:17px;"><b>Pick-up</b></label>
+
+     <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Metro Manila</option>
+      <option value="2">Luzon</option>
+      <option value="3">Visayas</option>
+      <option value="4">Mindanao</option>
+      <option value="5">Overseas</option>
+       </select>
+
+    <label style="font-family: Sigmar One" "font-size:17px;"><b>Charging Fee</b></label>
+    <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly style="width: 50px;  height: 30px;">
+
+    <script>
+            function calculateAmount(val) {
+                var tot_price = val * 120;
+                /*display the result*/
+                var divobj = document.getElementById('tot_amount');
+                divobj.value = tot_price;
+            }
+        </script><br><br>
+ 
+	<input bold type="text" id="Home" name="Home" placeholder="Complete Address" style="width: 368px;  height: 30px;"><br><br>
+
+    <input type="submit" name="submit" id="submit" value="Donate" style="width: 110px; margin-left: 130px;  height: 30px;">
+
+    
+</div>
 	
-	
-	<input type="submit" name="submit" id="submit" value="Donate">
-</center>
-</form>
-	
+	</form>
+	</div>
 </body>
 </html>
+
