@@ -1,0 +1,105 @@
+<html>
+ <head>
+ <body>
+ <style>
+body {
+  font-family: arial;
+}
+.hide {
+  display: none;
+}
+p {
+  font-weight: bold;
+}
+</style>
+
+
+<p>How many check boxes do you want when clicked on a radio button?</p>
+<input type="radio" name="tab" value="igotnone" onclick="show1();" />
+Inkind
+<input type="radio" name="tab" value="igottwo" onclick="show2();" />
+Monetary
+<input type="radio" name="tab" value="igottwo" onclick="show3();" />
+both
+<input type="radio" name="tab" value="igottwo" onclick="show4();" />
+none
+
+<div id="div1" class="hide">
+<hr><p>Okay Cool! Here are those two...</p>
+<input bold type="text" id="Food" name="Food" placeholder="Food Necessities" style="width: 280px; height: 30px;">
+<input type="number" ng-model="quantity0" placeholder="Quantity" size="4"><br><br>
+    
+<input bold type="text" id="Drinks" name="Drinks" placeholder="Beverages" style="width: 280px; height: 30px;">
+<input type="number" ng-model="quantity1" placeholder="Quantity" size="4"><br><br>
+<input bold type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene" style="width: 280px; height: 30px;">
+<input type="number" ng-model="quantity2" placeholder="Quantity" size="4"><br><br>
+    
+<input bold type="text" id="Cure" name="Cure" placeholder="Medicine" style="width: 280px; height: 30px;">
+<input type="number" ng-model="quantity3" placeholder="Quantity" size="4"><br><br>
+    
+</div>
+
+
+
+<div id="div2" class="hide">
+  <hr><p>Okay Cool! Here are those two...</p>
+<input bold type="text" id="List" name="List" placeholder="Specify your Donation" style="width: 280px; margin-left: 150px; height: 30px;">
+
+<input bold type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate?" style="width: 280px; margin-left: 150px; height: 30px;"><br>
+
+<input bold type="text" id="Gcash" name="Gcash" placeholder="Gcash Account" style="width: 280px; margin-left: 150px; height: 30px;">
+
+<input bold type="text" id="Bank" name="Bank" placeholder="Bank Account"  style="width: 280px; margin-left: 150px; height: 30px;">
+
+<input bold type="text" id="Bills" name="Bills" placeholder="Billing Address" style="width: 281px; margin-left: 522px; height: 30px;">
+  <input bold type="text" id="Place" name="Place" placeholder="Destination" style="width: 281px; margin-left: 520px; height: 30px;">
+</div>
+
+<div id="div3" class="hide">
+ <hr><p>Okay Cool! Here are those two...</p>
+ 
+ <input bold type="text" id="Food" name="Food" placeholder="Food Necessities" style="width: 280px; height: 30px;">
+  <input type="number" ng-model="quantity0" placeholder="Quantity" size="4">
+    
+    <input bold type="text" id="Drinks" name="Drinks" placeholder="Beverages" style="width: 280px; height: 30px;">
+  <input type="number" ng-model="quantity1" placeholder="Quantity" size="4">
+    
+    <input bold type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene" style="width: 280px; height: 30px;">
+  <input type="number" ng-model="quantity2" placeholder="Quantity" size="4">
+
+  <input bold type="text" id="Cure" name="Cure" placeholder="Medicine" style="width: 280px; height: 30px;">
+  <input type="number" ng-model="quantity3" placeholder="Quantity" size="4">
+    
+<input bold type="text" id="List" name="List" placeholder="Specify your Donation" style="width: 280px; margin-left: 150px; height: 30px;">
+
+<input bold type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate?" style="width: 280px; margin-left: 150px; height: 30px;"><br>
+
+<input bold type="text" id="Gcash" name="Gcash" placeholder="Gcash Account" style="width: 280px; margin-left: 150px; height: 30px;">
+
+<input bold type="text" id="Bank" name="Bank" placeholder="Bank Account"  style="width: 280px; margin-left: 150px; height: 30px;">
+
+<input bold type="text" id="Bills" name="Bills" placeholder="Billing Address" style="width: 281px; margin-left: 522px; height: 30px;">
+  <input bold type="text" id="Place" name="Place" placeholder="Destination" style="width: 281px; margin-left: 520px; height: 30px;">
+    
+</div>
+
+
+<script>
+function show1(){
+  document.getElementById('div1').style.display ='block';
+}
+function show2(){
+  document.getElementById('div2').style.display = 'block';
+}
+function show3(){
+  document.getElementById('div3').style.display = 'block';
+}
+function show4(){
+  document.getElementById('div3').style.display = 'none';
+}
+</script>
+
+
+ </head>
+ </body>
+ </html>

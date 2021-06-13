@@ -25,9 +25,6 @@ class Option(models.Model):
 	choose =(('Monetary Donation', 'Monetary Donation'), ('In-Kind Donation', 'In-Kind Donation'))
 	Donors = models.CharField(max_length=20, choices=choose, null=True)
 
-	#SPONSOR NOTE
-	Message= models.TextField(max_length=50, null=True)
-
 	def __str__(self):
 		return self.Donors
 
