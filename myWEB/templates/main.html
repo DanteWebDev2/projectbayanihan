@@ -1,0 +1,104 @@
+{% load static %}
+<html>
+ <head>
+ <style>
+
+ body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkslategray;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 18px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.hidden
+        {
+            display:none;
+            
+        }
+        .shown
+        {
+            display:block;
+
+        }
+
+.button {
+  background-color: orangered; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.99);
+}
+
+
+
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a href="#home"></a></li>
+  <li><a href="#contact"></a></li>
+  <li><a href="#about"></a></li>
+</ul>
+
+</style>
+</head>
+<body>
+
+
+
+
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+</style> 
+<title>BAYANIHAN</title>
+ </head>
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.150), rgba(0, 0, 0, 0.150)), url('{% static 'image/givings.jpg' %}') no-repeat fixed; background-size: cover;">
+<center><br><br><br><br><h1 style="color:white; font-family:Sigmar One; font-size:60px;">Operation BAYANIHAN</h1>
+
+<form class ="form" action="success" method="post">
+	{% csrf_token %}
+	
+<button><a href="hehe">Proceed</a></button>
+</center>
+
+  
+
+
+</form>
+</body>
+</html>

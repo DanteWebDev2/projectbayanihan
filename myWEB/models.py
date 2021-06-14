@@ -22,7 +22,7 @@ class Option(models.Model):
 
 	sponsors=models.ForeignKey(Sponsor, default=None, on_delete=models.CASCADE, null=True)
 
-	choose =(('Monetary Donation', 'Monetary Donation'), ('In-Kind Donation', 'In-Kind Donation'))
+	choose =(('Monetary Donation', 'Monetary Donation'), ('In-Kind Donation', 'In-Kind Donation'), ('Both', 'Both'))
 	Donors = models.CharField(max_length=20, choices=choose, null=True)
 
 	def __str__(self):
