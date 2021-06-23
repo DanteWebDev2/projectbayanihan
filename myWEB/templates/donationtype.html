@@ -128,13 +128,13 @@ li a:hover:not(.active) {
   
   <select id="Donors" name="Donors">
      <option value="" disabled selected>Choose from Donations</option>
-     <option value="1" id="selectkind" name="Gift" onclick="showDiv ('1')" >In-Kind Donation</option><br>
+     <option value="1" id="selectkind" name="Gift" onclick="showDiv ('1')" >In-Kind Donation</option><br><br>
      <option value="2" id="selectmoney" name="Money" onclick="showDiv ('2')">Monetary Donation</option><br>
      <option value="3" id="selectboth" name="Paired" onclick="showDiv ('3')">Both Donation</option><br>
      
      </select><br>
     
-    <div id="1" class="hidden"> 
+    <div id="1" class="hidden"><br>
     <input type="text" id="Food" name="Food" placeholder="Food Necessities:" style="width: 280px; height: 25px;">&nbsp;
     <input type="text" id="Quantity1" name="Quantity1" placeholder="Quantity:" onKeyUp="addition()" size="4">&nbsp;<br>
     <input type="text" id="Drinks" name="Drinks" placeholder="Beverages:" style="width: 280px; height: 25px;">&nbsp;
@@ -150,7 +150,7 @@ li a:hover:not(.active) {
     <label class="w3-text-green" style="font-color: white; font-family: Sigmar One; font-size:19px;"><b>Pick-up</b></label>
 
      <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
-      <option value="" disabled selected>Choose your option</option>
+      <option value="" disabled selected>Choose your Location</option>
       <option value="1">Metro Manila</option>
       <option value="2">Luzon</option>
       <option value="3">Visayas</option>
@@ -199,7 +199,7 @@ li a:hover:not(.active) {
     <label class="w3-text-green"style="color:black; font-family:Sigmar One; font-size:19px; margin-right: 10px;"><b>Pick-up</b></label>
 
      <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
-      <option value="" disabled selected>Choose your option</option>
+      <option value="" disabled selected>Choose your Location</option>
       <option value="1">Metro Manila</option>
       <option value="2">Luzon</option>
       <option value="3">Visayas</option>
