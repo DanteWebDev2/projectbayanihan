@@ -1,5 +1,76 @@
-<html lang="en">
-<head>
+{% load static %}
+<html>
+ <head>
+ <style>
+
+ body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkslategray;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 18px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.hidden
+        {
+            display:none;
+            
+        }
+        .shown
+        {
+            display:block;
+
+        }
+
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home"></a></li>
+  <li><a href="#contact"></a></li>
+  <li><a href="#about"></a></li>
+</ul>
+
+</style>
+</head>
+<body>
+<form class="form" action="last" method="POST">
+    {% csrf_token %}
+
+<div class="topnav">
+  <a class="active" href="#home"></a>
+  <a href="#news"></a>
+  <a href="#contact"></a>
+  <a href="#about"></a>
+</div>
+
+
+ <style>
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+</style> 
     <meta charset="UTF-8">
     <title>DONATION ENTRY</title>
 </head>
@@ -9,7 +80,7 @@ table, td, th{
   border-collapse: collapse;
 }
 </style>
-<body style="background-color:#FFDEAD;">
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/givings.jpg' %}') no-repeat fixed; background-size: cover;">
 <center><h1 style="color:tomato";>LIST OF DONATED ENTRIES</h1></center>
 <table style="width:100%">
   <tr>
@@ -19,23 +90,24 @@ table, td, th{
     <th>Email Address</th>
     <th>Phone Number</th>
     <th>Street Address</th>
+    <th>Donation Type</th>
     </tr>
-<div class="jnd">
-	{% for jnd in jnd %}
 	<div class="jnd">
 
     <tr>
-    <td>{{ forloop.counter }}:{{ jnd.First Name }}</td>
+    <td><center>{{ jnd.First Name }}</center></td>
     <td><center>{{ jnd.Last Name }}</center></td>
     <td><center>{{ jnd.Email Address }}</center></td>
     <td><center>{{ jnd.Phone Number}}</center></td>
     <td><center>{{ jnd.Street Address }}</center></td>
+    <td><center>{{ jnd.In-Kind }} {{ jnd.Monetary }} {{ jnd.Both }}</center></td>
+
 
   </tr>
 
 
 </div>
-	{% endfor %}
+	
 	</table>
 </body>
 </html>

@@ -119,15 +119,20 @@ li a:hover:not(.active) {
             
         </script>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/gifts.jpg' %}') no-repeat fixed; background-size: cover;">
-<form class="form" action="Call" method="POST">
-    {% csrf_token %}
+ 
+ <form class ="form" action="done" method="post">
+  {% csrf_token %}
 
   <center>
-  <h1 style="color: white; font-family:Sigmar One; font-size:55px;">Choose your Donation</h1>
+  <h1 style="color: white; font-family:Sigmar One; font-size:55px;">Choose Type of Donation</h1>
   
-  <input type="radio" onclick="showDiv ('1')" name="slt" id="salary" value="In-Kind Donation"> In-Kind Donation</input>
-    <input type="radio" onclick="showDiv ('2')" name="slt" id="slry" value="Monetary Donation "> Monetary Donation</input>
-    <input type="radio" onclick="showDiv ('3')" name="slt" id="sltss" value="Both"> Both</input><br><br>
+  <select id="Donors" name="Donors">
+     <option value="" disabled selected>Choose from Donations</option>
+     <option value="1" id="selectkind" name="Gift" onclick="showDiv ('1')" >In-Kind Donation</option><br>
+     <option value="2" id="selectmoney" name="Money" onclick="showDiv ('2')">Monetary Donation</option><br>
+     <option value="3" id="selectboth" name="Paired" onclick="showDiv ('3')">Both Donation</option><br>
+     
+     </select><br>
     
     <div id="1" class="hidden"> 
     <input type="text" id="Food" name="Food" placeholder="Food Necessities:" style="width: 280px; height: 25px;">&nbsp;
@@ -162,7 +167,7 @@ li a:hover:not(.active) {
     </div><br>
 
     <div id="2" class="hidden"> 
-    <input type="List" id="List" name="hold" placeholder="Specify your donation:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="List" name="List" placeholder="Specify your donation:" style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate:" style="width: 260px; height: 25px;"><br><br>
     <input type="text" id="Gcash" name="Gcash" placeholder="Gcash Account:" style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Bank" name="Bank" placeholder=" Bank Account: " style="width: 250px; height: 25px;">&nbsp;
@@ -179,7 +184,7 @@ li a:hover:not(.active) {
     <input type="text" id="Quantity7" name="Quantity7" placeholder="Quantity" onKeyUp="addition()" size="4">&nbsp;
     <input type="text" id="Cure" name="Cure" placeholder="Medicine:" style="width: 250px; height: 25px;">&nbsp;&nbsp;
     <input type="text" id="Quantity8" name="Quantity8" placeholder="Quantity" onKeyUp="addition()" size="4"><br><br>
-    <input type="List" id="List" name="hold" placeholder="Specify your donation:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="List" name="List" placeholder="Specify your donation:" style="width: 280px; height: 25px;">&nbsp;
     <input type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate:" style="width: 280px; height: 25px;">&nbsp;<br><br>
     <input type="text" id="Gcash" name="Gcash" placeholder="Gcash Account:" style="width: 280px; height: 25px;">&nbsp;
     <input type="text" id="Bank" name="Bank" placeholder=" Bank Account: " style="width: 280px; height: 25px;">&nbsp;
@@ -205,12 +210,12 @@ li a:hover:not(.active) {
 
     <label style="font-color: white; font-family: Sigmar One; font-size:19px;"><b>Charging Fee</b></label>
     <input class="w3-input w3-border" name="tot_amount" id="tot_amount3" type="text" readonly style="width: 50px;  height: 30px;">
-  
+   
     </div>
     
-    <button><a href="done">Donate</a></button>
+   <button>Donate</button>
 
-    </center>
+   </center>
   
     
  </form> 
