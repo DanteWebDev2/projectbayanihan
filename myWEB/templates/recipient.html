@@ -79,9 +79,9 @@
  @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
  </style>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/main.jpg' %}') no-repeat fixed; background-size: cover;">
-<center><h1 style="color:white; font-family:Sigmar One; font-size:50px;">DONATION RECIPIENT</h1></center>
+<center><h1 style="color:white; font-family:Sigmar One; font-size:50px;">DONATION <span style="color:orange;">RECIPIENT</span></h1></center>
 
-<form class ="form" action="nice" method="post">
+<form class ="form" action="summary" method="post">
 	{% csrf_token %}
 
 
@@ -92,13 +92,16 @@
 	<input bold type="date" id="Dates" name="Dates" placeholder="Date to Receive" style="width: 300px; height: 30px;"><br><br>
 
 	
+  <input type="text" id="haha" name="haha" placeholder="Specify your Donation" style="width: 300px; height: 30px;"><br><br>
+  
+
 	<input bold type="text" id="Picker" name="Picker" placeholder="Person Picking-up Donation" style="width: 300px; height: 30px;">
 
 	
 	<input bold type="text" id="Contacts" name="Contacts" placeholder="Contact Number" style="width: 300px; height: 30px;"><br><br>
 
-	
-  <center><br>
+ 
+  <center><br><br>
 
 
    <select id="choose" name="choose">

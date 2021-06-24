@@ -68,13 +68,13 @@
  @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
  </style>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/gifts.jpg' %}') no-repeat fixed; background-size: cover;">
-<center><h1 style="color:white; font-family:Sigmar One; font-size:50px; margin-top:-15px;">FUNDRAISING EVENT</h1></center>
+<center><h1 style="color:white; font-family:Sigmar One; font-size:50px; margin-top:-15px;">FUNDRAISING <span style="color:orange;">EVENT</span></h1></center>
 
 <form class ="form" action="done" method="post">
 	{% csrf_token %}
 
 
-	<center><h1 style="color:white; margin-top:-30px;">Desired Donation</h1>
+	<center><h1 style="color:white; margin-top:-30px;">Donation</h1>
 		 <input type="text" id="Food" name="Food" placeholder="Food Necessities:" style="width: 280px; height: 25px;">&nbsp;
     <input type="text" id="Quantity1" name="Quantity1" placeholder="Quantity:" onKeyUp="addition()" size="4">&nbsp;<br>
      <input type="text" id="Drinks" name="Drinks" placeholder="Beverages:" style="width: 280px; height: 25px;">&nbsp;
@@ -98,10 +98,8 @@
        </select>
 
          <label style="font-color: white; font-family: Sigmar One; font-size:19px;"><b>Charging Fee</b></label>
-    <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly style="width: 50px;  height: 30px;"><br>
+    <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly style="width: 50px;  height: 30px;"><br><br>
 
-    <input type="text" id="List" name="List" placeholder="Specify your donation:" style="width: 250px; height: 25px;">&nbsp;
-    <input type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate:" style="width: 260px; height: 25px;"><br><br>
     <input type="text" id="Gcash" name="Gcash" placeholder="Gcash Account:" style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Bank" name="Bank" placeholder=" Bank Account: " style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Bills" name="Bills" placeholder="Billing address:" style="width: 250px; height: 25px;">&nbsp;

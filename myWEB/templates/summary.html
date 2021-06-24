@@ -81,21 +81,37 @@ table, td, th{
 }
 </style>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/giving.jpg' %}') no-repeat fixed; background-size: cover;">
-<center><h1 style="color:white";>LIST OF DONATED ENTRIES</h1></center>
-<table style="width:100%">
+<center><h1 style="color:white";>LIST <span style="color:orange;">OF</span> DONATED ENTRIES</h1></center>
+<center><table style="width:70%">
+  
   <tr>
   
-    <th style="color:white";>First Name</th>
-    <th style="color:white";>Last Name</th>
-    <th style="color:white";>Email Address</th>
-    <th style="color:white";>Phone Number</th>
-    <th style="color:white";>Street Address</th>
-    <th style="color:white";>Donation Type</th>
+    <th style="color:white";>First Name </th>
+    <th style="color:white";>Last Name </th>
+    <th style="color:white";>Specify your Donation</th>
+    <th style="color:white";>Recipient's Name</th>
+    <th style="color:white";>Date to Receive</th>
     </tr>
 
 
+  <tr style="color:white";>
+
+    <td> {{donate.First}} </td>
+    <td> {{donate.Surname}} </td>
+    <td> {{claim.haha}} </td>
+    <td> {{claim.Receiver}} </td>
+    <td> {{claim.Dates}} </td>
+  </tr>
+  
+
 </div>
 	
-	</table>
+	</table><br><br>
+
+  <button style="background-color: orange;"><a class="delete" style="width: 110px; height: 30px; text-decoration: none;" href="/delete/{{ donate.id }}">Delete</a></button>
+
+  <button style="background-color: orange;"><a class="edit" style="width: 110px; height: 30px; text-decoration: none;" href="/edit/{{ donate.id }}">Edit</a></button>
+
+</center>
 </body>
 </html>

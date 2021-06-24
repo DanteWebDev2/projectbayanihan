@@ -10,7 +10,7 @@ class Sponsor(models.Model):
 	#EMAIL ADDRESS
 	Email= models.EmailField(max_length=20, null=True)
 	#PHONE NUMBER
-	Contact= models.IntegerField(null=True)
+	Contact= models.CharField(max_length=20, null=True)
 	#STREET ADDRESS
 	Address= models.CharField(max_length=50, null=True)
 
@@ -30,10 +30,6 @@ class Monetary(models.Model):
 
 	viewer=models.ManyToManyField(Sponsor)
 
-	#SPECIFY YOUR DONATION
-	List = models.CharField(max_length=20, null=True)
-	#WISH TO DONATE
-	Amount = models.CharField(max_length=20, null=True)
 	#GCASH ACCOUNT
 	Gcash= models.CharField(max_length=20, null=True)
 	#BANK ACCOUNT
@@ -119,7 +115,7 @@ class Fundraising(models.Model):
 	#Items NEEDED
 	Item= models.CharField(max_length=20, null=True)
 	#QUANTITY NEEDED
-	Sum= models.IntegerField(null=True)
+	Sum= models.CharField(max_length=20, null=True)
 
 
 class Recipient(models.Model):
@@ -130,10 +126,12 @@ class Recipient(models.Model):
 	Receiver = models.CharField(max_length=20, null=True)
 	#DATE RECEIVE
 	Dates = models.DateField(max_length=20, null=True)
+	#SPECIFY YOUR DONATION
+	haha = models.CharField(max_length=20, null=True)
 	#PERSON PICKING-UP DONATION
 	Persons= models.CharField(max_length=20, null=True)
 	#CONTACT INFO
-	Contact= models.IntegerField(null=True)
+	Contact= models.CharField(max_length=20, null=True)
 	choice=(('InKind Donations', 'InKind Donations'), ('Monetary Donations', 'Monetary Donations'), ('Both Donations', 'Both Donations'))
 	chosen= models.CharField(max_length=20, choices=choice, null=True)
 

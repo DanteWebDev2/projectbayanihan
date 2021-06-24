@@ -72,7 +72,7 @@ li a:hover:not(.active) {
 <title>DONATION</title>
  </head>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/give.jpg' %}') no-repeat fixed; background-size: cover;">
-<center><h1 style="color:white; font-family:Sigmar One; font-size:55px;">Donation Entry</h1></center>
+<center><h1 style="color:white; font-family:Sigmar One; font-size:55px;">Donation <span style="color:orange;">Entry</span></h1></center>
 
 <form class ="form" action="success" method="POST">
 	{% csrf_token %}

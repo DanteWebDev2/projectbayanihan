@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from .forms import Donates
 from .models import Sponsor, Option, Monetary, Transaction, Inkind, Settlement, Fundraising, Recipient
 # Create your views here.
 
@@ -91,16 +92,45 @@ def donation(request):
 	viewer6=Recipient.objects.create(
 		Receiver = request.POST['Receiver'],
 		Dates = request.POST['Dates'],
+		haha = request.POST['haha'],
 		Persons = request.POST['Picker'],
 		Contact = request.POST['Contacts'],
 		chosen = request.POST['choose']
 
-
-	
 		)
 
-	return render(request,'summary.html')
+	donate=Sponsor.objects.last
+	claim=Recipient.objects.last
 
 
+	return render(request,'summary.html' , {
+		'donate':donate,
+		'claim':claim,}
+		)
 
+def paper(request):
 
+	donate = Sponsor.objects.last
+	claim=Recipient.objects.last
+	return render(request,'summary.html' , {
+		'donate':donate,
+		'claim':claim,}
+		)
+
+def edit(request,id):
+	donate = Sponsor.objects.get(id=id)
+	return render(request, 'edit.html',{'donate':donate})
+
+def update(request,id):
+	donate = Sponsor.objects.get(id=id)
+	# form = donate(request.POST, instance = donate)
+	# if form.is_valid():
+	# form.save()
+	return redirect("/good")
+
+	return render(request,'edit.html',{'donate':donate})
+
+def destroy(request,id):
+	donate = Sponsor.objects.get(id=id)
+	donate.delete()
+	return redirect("/good")

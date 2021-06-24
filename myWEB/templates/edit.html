@@ -1,0 +1,70 @@
+{% load static %}
+<html>
+ <head>
+ <style>
+
+ body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkslategray;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 18px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.hidden
+        {
+            display:none;
+            
+        }
+        .shown
+        {
+            display:block;
+
+        }
+
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="#home"></a></li>
+  <li><a href="#contact"></a></li>
+  <li><a href="#about"></a></li>
+</ul>
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/giving.jpg' %}') no-repeat fixed; background-size: cover;">
+<form method="POST" class="post-form" action="/update/{{donate.id}}">
+    {% csrf_token %}
+<center style="margin-top: 150px;">
+<input bold type="text" id="Receiver" name="Receiver" placeholder="Recipient's Name" style="width: 300px; height: 30px;" value="{{ donate.Receiver }}">
+
+<input bold type="date" id="Dates" name="Dates" placeholder="Date to Receive" style="width: 300px; height: 30px;" value="{{donate.Dates }}"><br><br>
+
+<button style="background-color: orange;"><a class="update"  style="width: 110px; height: 30px; text-decoration: none;"  type="submit" href="/update/{{ donate.id }}">Update</a></button>
+</center>
+
+
+
+</body>
+</html>
