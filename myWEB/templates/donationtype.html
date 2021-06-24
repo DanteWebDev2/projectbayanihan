@@ -49,8 +49,6 @@ li a:hover:not(.active) {
 
 
 </style>
-</head>
-<body>
 
 <ul>
   <li><a class="active" href="#home"></a></li>
@@ -59,8 +57,6 @@ li a:hover:not(.active) {
 </ul>
 
 </style>
-</head>
-<body>
 
 <div class="topnav">
   <a class="active" href="#home"></a>
@@ -120,7 +116,7 @@ li a:hover:not(.active) {
         </script>
 <body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/gifts.jpg' %}') no-repeat fixed; background-size: cover;">
  
- <form class ="form" action="done" method="post">
+ <form class ="form" action="success" method="POST">
   {% csrf_token %}
 
   <center>
@@ -160,8 +156,6 @@ li a:hover:not(.active) {
 
     <label style="font-color: white; font-family: Sigmar One; font-size:19px;"><b>Charging Fee</b></label>
     <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly style="width: 50px;  height: 30px;">
-
-    
     
     
     </div><br>
@@ -176,21 +170,21 @@ li a:hover:not(.active) {
     </div><br>
   
    <div id="3" class="hidden"> 
-    <input type="text" id="Food" name="Food" placeholder="Food Necessities:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Food1" name="Food1" placeholder="Food Necessities:" style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Quantity5" name="Quantity5" placeholder="Quantity:" onKeyUp="addition()" size="4">&nbsp;
-    <input type="text" id="Drinks" name="Drinks" placeholder="Beverages:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Drinks1" name="Drinks1" placeholder="Beverages:" style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Quantity6" name="Quantity6" placeholder="Quantity" onKeyUp="addition()" size="4">&nbsp;<br>
-    <input type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Sanitation1" name="Sanitation1" placeholder="Hygiene:" style="width: 250px; height: 25px;">&nbsp;
     <input type="text" id="Quantity7" name="Quantity7" placeholder="Quantity" onKeyUp="addition()" size="4">&nbsp;
     <input type="text" id="Cure" name="Cure" placeholder="Medicine:" style="width: 250px; height: 25px;">&nbsp;&nbsp;
     <input type="text" id="Quantity8" name="Quantity8" placeholder="Quantity" onKeyUp="addition()" size="4"><br><br>
-    <input type="text" id="List" name="List" placeholder="Specify your donation:" style="width: 280px; height: 25px;">&nbsp;
-    <input type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate:" style="width: 280px; height: 25px;">&nbsp;<br><br>
-    <input type="text" id="Gcash" name="Gcash" placeholder="Gcash Account:" style="width: 280px; height: 25px;">&nbsp;
-    <input type="text" id="Bank" name="Bank" placeholder=" Bank Account: " style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="List1" name="List1" placeholder="Specify your donation:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="Amount1" name="Amount1" placeholder="How much do you wish to donate:" style="width: 280px; height: 25px;">&nbsp;<br><br>
+    <input type="text" id="Gcash1" name="Gcash1" placeholder="Gcash Account:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="Bank1" name="Bank1" placeholder=" Bank Account: " style="width: 280px; height: 25px;">&nbsp;
     
-    <input type="text" id="Bills" name="Bills" placeholder="Billing address:" style="width: 280px; height: 25px;">&nbsp;<br><br>
-    <input type="text" id="Place" name="Place" placeholder="Destination:" style="width: 280px; margin-left:5px;height: 25px;">&nbsp;<br>
+    <input type="text" id="Bills1" name="Bills1" placeholder="Billing address:" style="width: 280px; height: 25px;">&nbsp;<br><br>
+    <input type="text" id="Place1" name="Place" placeholder="Destination:" style="width: 280px; margin-left:5px;height: 25px;">&nbsp;<br>
    
    
      Total: <input type="text" name="TOTAL3" id="TOTAL3" / style="width: 80px;" "font-color: white; font-family: Sigmar One; font-size:19px;">
@@ -213,8 +207,7 @@ li a:hover:not(.active) {
    
     </div>
     
-   <button>Donate</button>
-
+   <button type="submit">Proceed</button>
    </center>
   
     

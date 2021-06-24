@@ -16,14 +16,12 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 20px 16px;
+  padding: 25px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 </style>
-</head>
-<body>
-<body>
+
 
 <div class="topnav">
   <a class="active" href="#home"></a>
@@ -34,34 +32,95 @@
 
 
 <title>FUNDRAISING</title>
+
+    <script>   
+    function addition()
+{
+    a = Number(document.getElementById('Quantity1').value);
+    b = Number(document.getElementById('Quantity2').value);
+    c = Number(document.getElementById('Quantity3').value);
+    d = Number(document.getElementById('Quantity4').value); 
+    e = a + b + c + d;
+    document.getElementById('TOTAL').value = e;
+    f = Number(document.getElementById('Quantity5').value);
+    g = Number(document.getElementById('Quantity6').value);
+    h = Number(document.getElementById('Quantity7').value);
+    i = Number(document.getElementById('Quantity8').value); 
+    j = f + g + h + i;
+    document.getElementById('TOTAL3').value = j;
+}
+
+      function calculateAmount(val) {
+                var tot_price = val * 120;
+                /*display the result*/
+                var divobj = document.getElementById('tot_amount');
+                divobj.value = tot_price;
+                
+                   var divobj = document.getElementById('tot_amount3');
+                divobj.value = tot_price;
+            }
+
+
+    </script>
+
  </head>
  <style>
  @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
  </style>
-<body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/give.jpg' %}') no-repeat fixed; background-size: cover;">
-<center><h1 style="color:white; font-family:Sigmar One; font-size:50px;">FUNDRAISING EVENT</h1></center>
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.400), rgba(0, 0, 0, 0.400)), url('{% static 'image/gifts.jpg' %}') no-repeat fixed; background-size: cover;">
+<center><h1 style="color:white; font-family:Sigmar One; font-size:50px; margin-top:-15px;">FUNDRAISING EVENT</h1></center>
 
-<form class ="form" action="nice" method="post">
+<form class ="form" action="done" method="post">
 	{% csrf_token %}
 
 
-	<center>
+	<center><h1 style="color:white; margin-top:-30px;">Desired Donation</h1>
+		 <input type="text" id="Food" name="Food" placeholder="Food Necessities:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="Quantity1" name="Quantity1" placeholder="Quantity:" onKeyUp="addition()" size="4">&nbsp;<br>
+     <input type="text" id="Drinks" name="Drinks" placeholder="Beverages:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text-decoration" id="Quantity2" name="Quantity2" placeholder="Quantity" onKeyUp="addition()" size="4">&nbsp;<br>
+    <input type="text" id="Sanitation" name="Sanitation" placeholder="Hygiene:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="Quantity3" name="Quantity3" placeholder="Quantity" onKeyUp="addition()" size="4">&nbsp;<br>
+    <input type="text" id="Cure" name="Cure" placeholder="Medicine:" style="width: 280px; height: 25px;">&nbsp;
+    <input type="text" id="Quantity4" name="Quantity4" placeholder="Quantity" onKeyUp="addition()" size="4">&nbsp;<br><br>
+    Total: <input type="text" name="TOTAL" id="TOTAL" / style="width: 80px;" style="width: 80px;" "font-color: white; font-family: Sigmar One; font-size:19px;"><br><br>
+
+    <input type="hidden" name="mode" value="PinRequest" />
+    <label class="w3-text-green" style="font-color: white; font-family: Sigmar One; font-size:19px;"><b>Pick-up</b></label>
+
+     <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
+      <option value="" disabled selected>Choose your Location</option>
+      <option value="1">Metro Manila</option>
+      <option value="2">Luzon</option>
+      <option value="3">Visayas</option>
+      <option value="4">Mindanao</option>
+      <option value="5">Overseas</option>
+       </select>
+
+         <label style="font-color: white; font-family: Sigmar One; font-size:19px;"><b>Charging Fee</b></label>
+    <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly style="width: 50px;  height: 30px;"><br>
+
+    <input type="text" id="List" name="List" placeholder="Specify your donation:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Amount" name="Amount" placeholder="How much do you wish to donate:" style="width: 260px; height: 25px;"><br><br>
+    <input type="text" id="Gcash" name="Gcash" placeholder="Gcash Account:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Bank" name="Bank" placeholder=" Bank Account: " style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Bills" name="Bills" placeholder="Billing address:" style="width: 250px; height: 25px;">&nbsp;
+    <input type="text" id="Place" name="Place" placeholder="Destination:" style="width: 250px; height: 25px;">&nbsp;<br><br>
 	
-	<input bold type="text" id="Group" name="Group" placeholder="Organization Name" style="width: 300px; height: 30px;">
+	<input bold type="text" id="Group" name="Group" placeholder="Organization Name" style="width: 230px; height: 30px;">
 
-	<input bold type="text" id="Organizer" name="Organizer" placeholder="Organization's Contact Person" style="width: 300px; height: 30px;"><br><br>
+	<input bold type="text" id="Organizer" name="Organizer" placeholder="Organization's Contact Person" style="width: 230px; height: 30px;">
+	
+	<input bold type="text" id="Activities" name="Activities" placeholder="Event Name" style="width: 230px; height: 30px;">
 
 	
-	<input bold type="text" id="Activities" name="Activities" placeholder="Event Name" style="width: 300px; height: 30px;">
+	<input bold type="text" id="Region" name="Region" placeholder="Location Address" style="width: 230px; height: 30px;"><br><br>
 
 	
-	<input bold type="text" id="Region" name="Region" placeholder="Location Address" style="width: 300px; height: 30px;"><br><br>
-
-	
-	<input bold type="text" id="Mails" name="Mails" placeholder="Mailing Address" style="width: 300px; height: 30px;">
+	<input bold type="text" id="Mails" name="Mails" placeholder="Mailing Address" style="width: 230px; height: 30px;">
 
 
-	<input bold type="date" id="When" name="When" placeholder="Date Needed" style="width: 300px; height: 30px;"><br><br>
+	<input bold type="date" id="When" name="When" placeholder="Date Needed" style="width: 230px; height: 30px;"><br><br>
 
 
 	<input bold type="text" id="Mass" name="Mass" placeholder="Items Needed" style="width: 180px; height: 30px;">
@@ -69,7 +128,7 @@
 	
 	<input bold type="text" id="Portion" name="Portion" placeholder="Quantity Needed" style="width: 180px; height: 30px;"><br><br>
 	
-	<button><a href="nice">Request</a></button>
+	<button type="submit">Donate</button>
 
 </center>
 </form>

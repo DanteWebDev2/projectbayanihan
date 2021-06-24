@@ -14,9 +14,6 @@ class Sponsor(models.Model):
 	#STREET ADDRESS
 	Address= models.CharField(max_length=50, null=True)
 
-	def __str__(self):
-		return self.First
-
 
 class Option(models.Model):
 
@@ -125,10 +122,6 @@ class Fundraising(models.Model):
 	Sum= models.IntegerField(null=True)
 
 
-	def __str__(self):
-		return self.Fund
-
-
 class Recipient(models.Model):
 
 	viewer=models.ForeignKey(Sponsor, default=None, on_delete=models.CASCADE, null=True)
@@ -141,9 +134,8 @@ class Recipient(models.Model):
 	Persons= models.CharField(max_length=20, null=True)
 	#CONTACT INFO
 	Contact= models.IntegerField(null=True)
-	#NUMBER OF BENEFICIARIES
-	Beneficiaries= models.IntegerField(null=True)
-
+	choice=(('InKind Donations', 'InKind Donations'), ('Monetary Donations', 'Monetary Donations'), ('Both Donations', 'Both Donations'))
+	chosen= models.CharField(max_length=20, choices=choice, null=True)
 
 	def __str__(self):
 		return self.Receiver
