@@ -106,6 +106,8 @@ def donation(request):
 	return render(request,'summary.html' , {
 		'donate':donate,
 		'claim':claim,}
+
+
 		)
 
 def paper(request):
@@ -123,9 +125,9 @@ def edit(request,id):
 
 def update(request,id):
 	donate = Sponsor.objects.get(id=id)
-	# form = donate(request.POST, instance = donate)
-	# if form.is_valid():
-	# form.save()
+	form = Donates(request.POST, instance = donate)
+	if form.is_valid():
+		form.save()
 	return redirect("/good")
 
 	return render(request,'edit.html',{'donate':donate})

@@ -29,7 +29,7 @@ class Option(models.Model):
 class Monetary(models.Model):
 
 	viewer=models.ManyToManyField(Sponsor)
-
+	
 	#GCASH ACCOUNT
 	Gcash= models.CharField(max_length=20, null=True)
 	#BANK ACCOUNT
